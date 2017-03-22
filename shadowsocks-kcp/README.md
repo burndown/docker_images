@@ -1,6 +1,8 @@
 ## HOW TO USE
 
+```
 docker run -e FASTOPEN='' -e UDP='' -e KCP_NOCOMP=--nocomp --net=host endoffight/shadowsocks-kcp
+```
 
 
 ## UPDATE_LOG
