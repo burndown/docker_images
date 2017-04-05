@@ -76,7 +76,7 @@ CMD ss-server -s $SS_SERVER_ADDR \
               -d $SS_DNS_ADDR_2 \
               $UDP \
               -f /tmp/ss.pid \
-              && server_linux_amd64 -t "127.0.0.1:$SERVER_PORT" \
+              && server_linux_amd64 -t "127.0.0.1:$SS_SERVER_PORT" \
               -l ":$KCP_LISTEN" \
               -key $KCP_PASS \
               --mode $KCP_MODE \
