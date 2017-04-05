@@ -43,16 +43,16 @@ RUN set -ex && \
     rm -rf /tmp/*
 
 
-ENV SERVER_ADDR=0.0.0.0 \
-SERVER_PORT=3721 \
-PASSWORD=laogao \
-METHOD=aes-256-cfb \
-TIMEOUT=300 \
-FASTOPEN=--fast-open \
-UDP_RELAY=-u \
-USER=nobody \
-DNS_ADDR=8.8.8.8 \
-DNS_ADDR_2=8.8.4.4
+ENV SS_SERVER_ADDR=0.0.0.0 \
+SS_SERVER_PORT=3721 \
+SS_PASSWORD=laogao \
+SS_METHOD=aes-256-cfb \
+SS_TIMEOUT=300 \
+SS_FASTOPEN=--fast-open \
+SS_UDP_RELAY=-u \
+SS_USER=nobody \
+SS_DNS_ADDR=8.8.8.8 \
+SS_DNS_ADDR_2=8.8.4.4
 
 
 ENV KCP_LISTEN=3824 \
@@ -65,15 +65,15 @@ KCP_NOCOMP=''
 EXPOSE $SERVER_PORT/tcp $SERVER_PORT/udp
 EXPOSE $KCP_LISTEN/udp
 
-CMD ss-server -s $SERVER_ADDR \
-              -p $SERVER_PORT \
-              -k $PASSWORD \
-              -m $METHOD \
-              -t $TIMEOUT \
-              -a $USER \
+CMD ss-server -s $SS_SERVER_ADDR \
+              -p $SS_SERVER_PORT \
+              -k $SS_PASSWORD \
+              -m $SS_METHOD \
+              -t $SS_TIMEOUT \
+              -a $SS_USER \
               $FASTOPEN \
-              -d $DNS_ADDR \
-              -d $DNS_ADDR_2 \
+              -d $SS_DNS_ADDR \
+              -d $SS_DNS_ADDR_2 \
               $UDP \
               -f /tmp/ss.pid \
               && server_linux_amd64 -t "127.0.0.1:$SERVER_PORT" \
