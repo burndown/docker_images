@@ -3,19 +3,21 @@
 ```
 docker run -e FASTOPEN='' -e UDP='' -e KCP_NOCOMP=--nocomp --net=host endoffight/shadowsocks-kcp
 ```
-ENV SERVER_ADDR=0.0.0.0 \
-SERVER_PORT=3721 \
-PASSWORD=laogao \
-METHOD=aes-256-cfb \
-TIMEOUT=300 \
-FASTOPEN=--fast-open \
-UDP_RELAY=-u \
-USER=nobody \
-DNS_ADDR=8.8.8.8 \
-DNS_ADDR_2=8.8.4.4
+ENV 
+SS_SERVER_ADDR=0.0.0.0 \
+SS_SERVER_PORT=3721 \
+SS_PASSWORD=laogao \
+SS_METHOD=aes-256-cfb \
+SS_TIMEOUT=300 \
+SS_FASTOPEN=--fast-open \
+SS_UDP_RELAY=-u \
+SS_USER=nobody \
+SS_DNS_ADDR=8.8.8.8 \
+SS_DNS_ADDR_2=8.8.4.4
 
 
-ENV KCP_LISTEN=3824 \
+ENV 
+KCP_LISTEN=3824 \
 KCP_PASS=phpgao \
 KCP_ENCRYPT=aes-192 \
 KCP_MODE=fast \
